@@ -1,11 +1,20 @@
-FROM node:10-alpine
+# Use official Node.js image as the base image
+FROM node:14-alpine
 
-WORKDIR /home/node/app
+# Set the working directory in the container
+WORKDIR /usr/src/app
 
-COPY . .
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
+# Install dependencies
 RUN npm install
 
-EXPOSE 3000
+# Copy the rest of the application code
+COPY . .
 
-CMD ["node","index.js"]
+# Expose the port the app runs on
+EXPOSE 3002
+
+# Command to run the application
+CMD ["npm", "start"]
