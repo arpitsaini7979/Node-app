@@ -22,12 +22,12 @@ jobs:
         run: ls -R
 
       - name: Check if Terraform directory exists
-        run: ls -la Node-app/terraform  # Adjust this path as necessary
+        run: ls -la terraform  # Adjust this path as necessary
 
       - name: Initialize Terraform
         run: terraform init
-        working-directory: Node-app/terraform  # Adjust this path as necessary
+        working-directory: terraform  # Adjust this path as necessary
 
       - name: Apply Terraform
         run: terraform apply -auto-approve
-        working-directory: Node-app/terraform  # Adjust this path as necessary
+        working-directory: terraform  # Adjust this path as necessary
