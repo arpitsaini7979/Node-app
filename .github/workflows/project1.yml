@@ -1,0 +1,30 @@
+name: Terraform Workflow
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.0.0
+
+      - name: Check if Terraform directory exists
+        run: ls -la ./terraform  # Adjust this path as necessary
+
+      - name: Initialize Terraform
+        run: terraform init
+        working-directory: ./terraform  # Adjust this path as necessary
+
+      - name: Apply Terraform
+        run: terraform apply -auto-approve
+        working-directory: ./terraform  # Adjust this path as necessary
