@@ -8,8 +8,8 @@ resource "aws_ecs_task_definition" "my_task" {
   container_definitions    = <<DEFINITION
 [
   {
-    "name": "my-container",
-    "image": "docker.io/arpitsaini/node_helloworld:latest",
+    "name": "my-container_1",
+    "image": "arpitsaini/node_helloworld",
     "cpu": 256,
     "memory": 512,
     "essential": true,
