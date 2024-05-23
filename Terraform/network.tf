@@ -13,7 +13,7 @@ resource "aws_security_group" "ecs_sg" {
   ingress {
     from_port   = 3002
     to_port     = 3002
-    protocol    = "tcp"
+    protocol    = "All"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
